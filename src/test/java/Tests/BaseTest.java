@@ -1,22 +1,28 @@
 package Tests;
 import Pages.LoginPage;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Parameters;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.*;
 import outils.MyDriver;
 
 public class BaseTest {
 
     protected static MyDriver driver;
+
+    protected static WebDriver driver1;
     protected LoginPage LoginPage;
 
+
+    @Parameters({"browser","url","username","password"})
     @BeforeMethod(alwaysRun = true)
-    @Parameters({"url","username","password"})
-    public void BeforeMethod(String browser, String url){
+    public void BeforeMethod(String browser,String url,String username,String password){
         driver=new MyDriver(browser);
         driver.getDriver().manage().window().maximize();
         navigateTo(url);
+        load_loginpage();
+        LoginPage.write_password(username);
+        LoginPage.write_password(password);
+        LoginPage.click_LoginButton();
     }
 
     public void navigateTo(String url){
