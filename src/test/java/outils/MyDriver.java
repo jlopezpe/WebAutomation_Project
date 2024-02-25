@@ -2,11 +2,16 @@ package outils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class MyDriver {
 
     private WebDriver driver;
+
+    public WebDriver getDriver() {
+        return this.driver;
+    }
 
     public MyDriver(String browser){
 
