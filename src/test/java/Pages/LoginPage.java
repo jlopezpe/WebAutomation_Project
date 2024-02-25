@@ -25,7 +25,7 @@ public class LoginPage extends BasePage{
     public void click_LoginButton(){
         click_Element(this.login_button);
     }
-    
+
     public String search_LoginButtonName(){
         return this.login_button.getText();
     }
