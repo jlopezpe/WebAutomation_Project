@@ -8,6 +8,10 @@ public class MyDriver {
 
     private WebDriver driver;
 
+    public WebDriver getDriver() {
+        return this.driver;
+    }
+
     public MyDriver(String browser){
 
         //if we would create it with firefox we should do the same as chrome (adding a path)
